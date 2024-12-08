@@ -36,6 +36,7 @@ public class HamletParserTest {
     System.out.println(changedText);
     assertFalse(changedText.contains("Horatio"));
     assertTrue(changedText.contains("Tariq"));
+
     }
 
     @Test
