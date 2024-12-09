@@ -48,25 +48,22 @@ public class HamletParser {
         String stringHoratio = "\\bHoratio\\b";
         String modifiedData ="";
 
-       // System.out.println(hamletData);
 
         if (hamletData == null) {
             throw new IllegalStateException("Hamlet data is not loaded.");
         }
 
 
-
-        //Creating Pattern and Matcher for Hamlet
+        //Creating Pattern and Matcher for Hamlet and replace Hamlet with Leon
         Pattern hamletPattern = Pattern.compile(stringHamlet, Pattern.CASE_INSENSITIVE);
         Matcher matcherHamlet = hamletPattern.matcher(hamletData);
 
         modifiedData = matcherHamlet.replaceAll("Leon");
 
-        System.out.println("After replacing Hamlet: \n" + modifiedData);
-
-        // Replace "Horatio" with "Tariq"
+        // Creating Pattern and Matcher for Horatio and Replace "Horatio" with "Tariq"
         Pattern horatioPattern = Pattern.compile(stringHoratio, Pattern.CASE_INSENSITIVE);
         Matcher matcherHoratio = horatioPattern.matcher(modifiedData);
+
         modifiedData = matcherHoratio.replaceAll("Tariq");
 
         return modifiedData;
