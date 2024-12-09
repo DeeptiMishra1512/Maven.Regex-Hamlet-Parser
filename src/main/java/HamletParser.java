@@ -44,18 +44,18 @@ public class HamletParser {
     public String patternMatcherMethod(){
         //Create 2 String variable to store the strings to be matched in file data
         // adding //b to make sure Horatio and Tariq are a single words when being replaced.
-        String text1 = "//bHamlet//b";
-        String text2 = "//bHoratio//b";
+        String stringHamlet = "//bHamlet//b";
+        String stringHoratio = "//bHoratio//b";
 
         //Creating Pattern and Matcher for Hamlet
-        Pattern hamletPattern = Pattern.compile(text1, Pattern.CASE_INSENSITIVE);
-        Matcher hamletMatcher = hamletPattern.matcher(hamletData);
-        hamletData = hamletMatcher.replaceAll("Leon");
+        Pattern hamletPattern = Pattern.compile(stringHamlet, Pattern.CASE_INSENSITIVE);
+        Matcher matcherHamlet = hamletPattern.matcher(hamletData);
+        hamletData = matcherHamlet.replaceAll("Leon");
 
         // Replace "Horatio" with "Tariq"
-        Pattern horatioPattern = Pattern.compile(text2, Pattern.CASE_INSENSITIVE);
-        Matcher horatioMatcher = horatioPattern.matcher(hamletData);
-        hamletData = horatioMatcher.replaceAll("Tariq");
+        Pattern horatioPattern = Pattern.compile(stringHoratio, Pattern.CASE_INSENSITIVE);
+        Matcher matcherHoratio = horatioPattern.matcher(hamletData);
+        hamletData = matcherHoratio.replaceAll("Tariq");
 
         return hamletData;
     }
