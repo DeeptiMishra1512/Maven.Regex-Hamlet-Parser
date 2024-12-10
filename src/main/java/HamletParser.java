@@ -1,4 +1,6 @@
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -10,6 +12,7 @@ import java.util.regex.Pattern;
 public class HamletParser {
 
     private String hamletData;
+    private String outputFile  = "/Users/dmishra/DeeptiProjects/Maven.Regex-Hamlet-Parser/src/main/resources/OutputFile.txt";
 
     public HamletParser(){
         this.hamletData = loadFile();
@@ -43,7 +46,7 @@ public class HamletParser {
 
     public String patternMatcherMethod(){
         //Create 2 String variable to store the strings to be matched in file data
-        // adding //b to make sure Horatio and Tariq are a single words when being replaced.
+        // adding \\b to make sure Horatio and Tariq are a single words when being replaced.
         String stringHamlet = "\\bHamlet\\b";
         String stringHoratio = "\\bHoratio\\b";
         String modifiedData ="";
@@ -66,7 +69,25 @@ public class HamletParser {
 
         modifiedData = matcherHoratio.replaceAll("Tariq");
 
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))){
+            writer.write(modifiedData);
+            System.out.println("File written successfully to: " + outputFile);
+        } catch (IOException e) {
+            System.out.println("Failed to write to output file.");
+            e.printStackTrace();
+        }
+
+        System.out.println(modifiedData);
         return modifiedData;
+    }
+
+
+
+    public static void main(String[] args){
+
+        HamletParser hamlet = new HamletParser();
+        hamlet.patternMatcherMethod();
+
     }
 
 }
