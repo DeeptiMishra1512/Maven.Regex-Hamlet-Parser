@@ -38,10 +38,7 @@ public class HamletParserTest {
         //Calling method to replace Horatio with "Tariq"
         String changedText = hamletParser.patternMatcherMethod();
 
-        //checking if new data has Horatio string , assert should be false
         //assert to check if new data contains "Tariq" should be true
-
-   // assertFalse(changedText.contains("Horatio"));
     assertTrue(changedText.contains("Tariq"));
 
     }

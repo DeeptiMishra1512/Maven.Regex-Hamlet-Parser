@@ -69,6 +69,7 @@ public class HamletParser {
 
         modifiedData = matcherHoratio.replaceAll("Tariq");
 
+      //Writing Modified data to Output File
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))){
             writer.write(modifiedData);
             System.out.println("File written successfully to: " + outputFile);
@@ -77,7 +78,6 @@ public class HamletParser {
             e.printStackTrace();
         }
 
-        System.out.println(modifiedData);
         return modifiedData;
     }
 
